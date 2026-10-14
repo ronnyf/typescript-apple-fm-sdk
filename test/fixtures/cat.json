@@ -1,0 +1,38 @@
+{
+  "$defs": {
+    "Age": {
+      "additionalProperties": false,
+      "properties": {
+        "months": {
+          "type": "integer"
+        },
+        "years": {
+          "type": "integer"
+        }
+      },
+      "required": ["years", "months"],
+      "title": "Age",
+      "type": "object",
+      "x-order": ["years", "months"]
+    }
+  },
+  "additionalProperties": false,
+  "description": "A description of a cute cat",
+  "properties": {
+    "age": {
+      "$ref": "#/$defs/Age",
+      "description": "The age of the cat, at most 20 years"
+    },
+    "name": {
+      "type": "string"
+    },
+    "profile": {
+      "description": "One sentence about this cat's personality",
+      "type": "string"
+    }
+  },
+  "required": ["name", "age", "profile"],
+  "title": "Cat",
+  "type": "object",
+  "x-order": ["name", "age", "profile"]
+}

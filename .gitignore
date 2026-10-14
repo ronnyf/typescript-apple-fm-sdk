@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output (npm run build, npm run build:native)
+dist/
+lib/
+*.tsbuildinfo
+*.tgz
+
+# Logs and coverage
+npm-debug.log*
+*.log
+coverage/
+
+# Environment
+.env
+.env.*
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store

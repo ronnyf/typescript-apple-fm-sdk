@@ -1,0 +1,34 @@
+{
+  "name": "apple-fm-sdk",
+  "version": "0.1.0",
+  "description": "TypeScript bindings for Apple's Foundation Models framework",
+  "license": "Apache-2.0",
+  "author": "Apple Inc.",
+  "type": "module",
+  "os": ["darwin"],
+  "cpu": ["arm64"],
+  "engines": { "node": ">=22.18" },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "lib/libFoundationModels.dylib", "foundation-models-c/Package.swift", "foundation-models-c/Sources", "scripts/build-native.ts"],
+  "keywords": ["machine-learning", "artificial-intelligence", "apple", "foundation-models"],
+  "scripts": {
+    "build:native": "node scripts/build-native.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --test-concurrency=1 'test/**/*.test.ts'",
+    "test:unit": "FM_SKIP_MODEL_TESTS=1 node --test 'test/**/*.test.ts'",
+    "prepack": "npm run build:native && npm run build"
+  },
+  "dependencies": {
+    "koffi": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  }
+}
